@@ -32,7 +32,7 @@ const Home = () => {
       setLoading(false);
     }
   };
-
+  localStorage.setItem("movies", JSON.stringify(data));
   return (
     <>
       <Navbar />
