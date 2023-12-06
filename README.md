@@ -1,3 +1,11 @@
+I used the OMDb api to fetch the movies. I used react as a framework , fetch api to fetch the data from the api , redux for sate management , localStorgae to store data locally, react-router-dom for routing.
+I used html2canvas and jspdf for pdf generation.
+
+Technolog used:- React, Redux
+
+liva demo:- https://moviflix-roshanchau.vercel.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
