@@ -6,6 +6,7 @@ import { FiMinus } from "react-icons/fi";
 import { IoAddSharp } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../features/counter/CounterSlice";
+
 const EventDetails = ({ id }) => {
   const count = useSelector((state) => state.counter.count);
   localStorage.setItem("data", count.toString());

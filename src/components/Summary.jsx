@@ -57,7 +57,7 @@ const Summary = ({title , id}) => {
         {/* confirm button */}
         <div className="mt-6">
           <Link to={`/ticket/${id}`}>
-          <button className="bg-red-600 w-full p-3 text-white rounded-md">
+          <button  className="bg-red-600 w-full p-3 text-white rounded-md">
             Confirm & Pay
           </button></Link>
          

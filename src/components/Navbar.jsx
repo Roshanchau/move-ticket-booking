@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,8 @@ const Navbar = () => {
           {/* logo+routes */}
           <div className="flex flex-row items-center gap-[80px]">
             {/* logo */}
-            <div className="flex cursor-pointer flex-row items-center gap-2">
+              <Link to="/">
+              <div  className="flex cursor-pointer flex-row items-center gap-2">
               <img
                 className="w-[30px] h-[25.98px]"
                 src="/images/airplane.svg"
@@ -18,6 +20,8 @@ const Navbar = () => {
                 TickTicketing
               </p>
             </div>
+              </Link>
+            
             {/* links */}
             <div className="flex flex-row items-center justify-center">
               <ul

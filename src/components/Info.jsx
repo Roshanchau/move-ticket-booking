@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Info = () => {
+  const [info, setInfo] = useState({
+    name: "",
+    email: "",
+    address: "",
+    country: "",
+    state: "",
+    city: "",
+    zip: "",
+  });
+  localStorage.setItem("user", JSON.stringify(info));
+  const updateInfo = (e) => {
+    const { name, value } = e.target;
+    setInfo((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   return (
     <>
-      <div className="p-8 bg-[#1C1C24]">
+      <div className="p-8 bg-[#1C1C24] border-2 border-gray-700 rounded-xl">
         <h1 className="text-neutral-50 text-3xl mt-6">Information</h1>
         {/* full name */}
         <div className="flex flex-col mt-8">
@@ -12,7 +29,11 @@ const Info = () => {
             Full Name
           </label>
           <input
-          placeholder="eg. jane Copper"
+            required
+            name="name"
+            value={info.name}
+            onChange={updateInfo}
+            placeholder="eg. jane Copper"
             type="text"
             className="mt-2 text-gray-300 w-[808px] px-4 py-3 bg-[#1C1C24] rounded-md border-2 border-[#252D3C]"
           />
@@ -25,7 +46,10 @@ const Info = () => {
               Email*
             </label>
             <input
-            placeholder="eg. joshdoe1@gmail.com"
+              value={info.email}
+              name="email"
+              onChange={updateInfo}
+              placeholder="eg. joshdoe1@gmail.com"
               type="text"
               className="mt-2 text-gray-300 w-[368px] px-4 py-3 bg-[#1C1C24] rounded-md border-2 border-[#252D3C]"
             />
@@ -36,6 +60,9 @@ const Info = () => {
               Address*
             </label>
             <input
+              name="address"
+              value={info.address}
+              onChange={updateInfo}
               type="text"
               className="mt-2 text-gray-300 w-[368px] px-4 py-3 bg-[#1C1C24] rounded-md border-2 border-[#252D3C]"
             />
@@ -48,12 +75,14 @@ const Info = () => {
               {" "}
               Country*
             </label>
-            <select className="mt-2 text-gray-300 w-[368px] px-4 py-3 bg-[#1C1C24] rounded-md border-2 border-[#252D3C]" name="country" id="country" placeholder="Nepal">
-              <option value="Nepal" selected="selected">Nepal</option>
-              <option value="China">China</option>
-              <option value="KoreAmerica">KoreAmerica</option>
-              <option value="America">America</option>
-            </select>
+            <input
+              name="country"
+              value={info.country}
+              placeholder="Nepal"
+              onChange={updateInfo}
+              type="text"
+              className="mt-2 text-gray-300 w-[368px] px-4 py-3 bg-[#1C1C24] rounded-md border-2 border-[#252D3C]"
+            />
           </div>
           <div className="flex flex-col">
             <label htmlFor="full name" className="text-neutral-50 text-lg">
@@ -61,6 +90,9 @@ const Info = () => {
               State
             </label>
             <input
+              name="state"
+              value={info.state}
+              onChange={updateInfo}
               type="text"
               className="mt-2 text-gray-300 w-[368px] px-4 py-3 bg-[#1C1C24] rounded-md border-2 border-[#252D3C]"
             />
@@ -74,6 +106,9 @@ const Info = () => {
               City
             </label>
             <input
+              name="city"
+              value={info.city}
+              onChange={updateInfo}
               type="text"
               className="mt-2 text-gray-300 w-[368px] px-4 py-3 bg-[#1C1C24] rounded-md border-2 border-[#252D3C]"
             />
@@ -84,7 +119,10 @@ const Info = () => {
               Zip/PostCode*
             </label>
             <input
-              type="text"
+              name="zip"
+              value={info.zip}
+              onChange={updateInfo}
+              type="number"
               className="mt-2 text-gray-300 w-[368px] px-4 py-3 bg-[#1C1C24] rounded-md border-2 border-[#252D3C]"
             />
           </div>

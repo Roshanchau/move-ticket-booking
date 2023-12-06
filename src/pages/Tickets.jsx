@@ -10,6 +10,7 @@ const Tickets = () => {
   let moviesData = JSON.parse(localStorage.getItem("movies")) || [];
   let basket = JSON.parse(localStorage.getItem("data")) || [];
   let price = JSON.parse(localStorage.getItem("ticketData")) || [];
+  let userInfo = JSON.parse(localStorage.getItem("user")) || [];
   const selectedMovie = moviesData.filter((x) => x.imdbID === id);
   const items = new Array(basket).fill(null);
     const imgUrl=selectedMovie[0].Posters
@@ -30,7 +31,7 @@ const Tickets = () => {
       doc.save('receipt.pdf');
     })
   }
-  return (
+  return(
     <>
       <div className="finalTicket p-20 m-20 items-center justify-center">
         {/* logo */}
@@ -50,9 +51,9 @@ const Tickets = () => {
           {/* info */}
           <div className="flex flex-row justify-between ">
             <div className="flex flex-col text-gray-500 text-base gap-2 mt-3">
-              <p>Invoice to John Doe</p>
-              <p>Baliya chowk, Itahari</p>
-              <p>Sunsari, Nepal</p>
+              <p>Invoice to {userInfo.name}</p>
+              <p>{userInfo.address}, {userInfo.city}</p>
+              <p>{userInfo.state}, {userInfo.country}</p>
             </div>
             <div className="flex flex-col text-gray-500 text-base gap-2 mt-3">
               <p>Invoice ID : YCCURW-000000</p>
